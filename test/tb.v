@@ -17,7 +17,8 @@ module tb ();
   reg clk;
   reg rst_n;
   reg ena;
-  reg [7:0] dco_code;
+	reg [7:0] dco_code;
+	reg dco_out;
   
   wire [7:0] ui_in;
   wire [7:0] uo_out;
@@ -47,7 +48,7 @@ module tb ();
 	  .rst_n  (~rst_n)     // not reset
   );
 assign ui_in = dco_code;
-    
+	assign uo_out = dco_out;
 always #10 clk = ~clk;
   
   initial begin
