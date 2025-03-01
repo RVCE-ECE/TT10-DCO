@@ -24,10 +24,7 @@ module tt_um_dco (
   // List all unused inputs to prevent warnings
     wire _unused = &{uio_in, 1'b0};
 
-    // module tt_um_dco (
-    // input  clk,         // clk = 0,1,1
-    // input rst_n,        // here 0,0,1 
-    // input  en,          // 1,1 
+    
     reg dco_out; // x(0), 0
     wire [7:0] dco_code;  // 1,1
     
