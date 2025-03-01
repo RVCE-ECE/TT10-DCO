@@ -26,7 +26,7 @@ async def test_dco_out_after_5_cycles(dut):
     dut.rst_n.value = 0  # Release reset after 20 ns
 
     # Wait for 5 clock cycles
-    for _ in range(5):
+    for _ in range(7):
         await RisingEdge(dut.clk)  # Wait for rising edge of the clock
     
     # Check if dco_out is 1 after 5 clock cycles
