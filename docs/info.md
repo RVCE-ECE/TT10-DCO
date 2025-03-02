@@ -16,7 +16,7 @@ To verify the functionality of the tt_um_dco module, a testbench (tb) has been p
 
 **Inputs and Clock Frequency**
 
-**u_in** is used to receive dco_code through multiple cycles.
+**u_in** is used to receive dco_code.
 
 **rst_n** is the active-low reset signal.
 
