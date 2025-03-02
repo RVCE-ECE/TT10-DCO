@@ -23,8 +23,6 @@ To verify the functionality of the tt_um_dco module, a testbench (tb) has been p
 **clk** operates at a 50 MHz frequency.
 
 Table: Test cases for DCO
-Here’s the updated table with **"ui_in (Input A)"** renamed to **"ui_in"**:  
-
 | **Time (ns)** | **ui_in**           | **Reset** | **ena** | **uo_out (Output)** | **Clock** |
 |---------------|---------------------|-----------|---------|---------------------|-----------|
 | 0             | `00000001`          |  1        | 1       | `00000000`          | 1         |
