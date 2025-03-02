@@ -14,6 +14,46 @@ The tt_um_dco module is a digitally controlled oscillator (DCO) that generates a
 
 To verify the functionality of the tt_um_dco module, a testbench (tb) has been provided. The testbench simulates different input scenarios and observes the output behavior of the tt_um_dco module to ensure that it works correctly.
 
+**Inputs and Clock Frequency**
+
+**u_in** is used to receive dco_code through multiple cycles.
+
+**rst_n** is the active-low reset signal.
+
+**clk** operates at a 50 MHz frequency.
+
+Table: Test cases for DCO
+Here is the modified table with the **State** column removed:  
+
+Here is the updated table with the **ena** column added and set to `1` in all rows:  
+
+Here is the updated table with all entries in the **ui_in (Input A)** column changed to `00000001`:  
+
+| **Time (ns)** | **ui_in (Input A)** | **Reset** | **ena** | **uo_out (Output)** | **Clock** |
+|---------------|---------------------|-----------|---------|---------------------|-----------|
+| 0             | `00000001`          |  1        | 1       | `00000000`          | 1         |
+| 10            | `00000001`          |  1        | 1       | `00000000`          | 0         |
+| 20            | `00000001`          |  0        | 1       | `00000000`          | 1         |
+| 30            | `00000001`          |  0        | 1       | `00000000`          | 0         |
+| 40            | `00000001`          |  0        | 1       | `00000000`          | 1         |
+| 50            | `00000001`          |  0        | 1       | `00000000`          | 0         |
+| 60            | `00000001`          |  0        | 1       | `00000000`          | 1         |
+| 70            | `00000001`          |  0        | 1       | `00000000`          | 0         |
+| 80            | `00000001`          |  0        | 1       | `00000000`          | 1         |
+| 90            | `00000001`          |  0        | 1       | `00000000`          | 0         |
+| 100           | `00000001`          |  0        | 1       | `00000001`          | 1         |
+| 110           | `00000001`          |  0        | 1       | `00000001`          | 0         |
+| 120           | `00000001`          |  0        | 1       | `00000001`          | 1         |
+| 130           | `00000001`          |  0        | 1       | `00000001`          | 0         |
+| 140           | `00000001`          |  0        | 1       | `00000001`          | 1         |
+| 150           | `00000001`          |  0        | 1       | `00000001`          | 0         |
+| 160           | `00000001`          |  0        | 1       | `00000001`          | 1         |
+| 170           | `00000001`          |  0        | 1       | `00000001`          | 0         |
+| 180           | `00000001`          |  0        | 1       | `00000001`          | 1         |
+| 190           | `00000001`          |  0        | 1       | `00000000`          | 0         |
+| 200           | `00000001`          |  0        | 1       | `00000000`          | 1         |
+| 210           | `00000001`          |  0        | 1       | `00000000`          | 0         |
+
 The testbench will output the results of the simulation, including the values of the inputs and the resulting output for each test case. Monitor the output in the console or waveform viewer to ensure the tt_um_mac module behaves as expected.
 
 ## External hardware
