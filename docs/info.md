@@ -50,10 +50,6 @@ Here’s the updated table with **"ui_in (Input A)"** renamed to **"ui_in"**:
 | 200           | `00000001`          |  0        | 1       | `00000000`          | 1         |
 | 210           | `00000001`          |  0        | 1       | `00000000`          | 0         |
 
-Let me know if you need any more tweaks! 🚀
-
-The testbench will output the results of the simulation, including the values of the inputs and the resulting output for each test case. Monitor the output in the console or waveform viewer to ensure the tt_um_mac module behaves as expected.
-
 ## External hardware
 
 During the simulation, you can monitor the console or waveform outputs for detailed step-by-step results. The testbench uses $monitor to display real-time updates of the inputs and the resulting output.
