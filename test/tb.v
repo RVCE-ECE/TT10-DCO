@@ -18,7 +18,7 @@ module tb ();
   reg rst_n;
   reg ena;
 	reg [7:0] dco_code;
-	reg dco_out;
+	wire dco_out;
   
   wire [7:0] ui_in;
   wire [7:0] uo_out;
@@ -45,7 +45,7 @@ module tb ();
       .uio_oe (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
       .ena    (ena),      // enable - goes high when design is selected
       .clk    (clk),      // clock
-	  .rst_n  (rst_n)     // not reset
+	  .rst_n  (~rst_n)     // not reset
   );
 assign ui_in = dco_code;
 	assign uo_out = dco_out;
@@ -53,20 +53,20 @@ always #10 clk = ~clk;
   
   initial begin
     clk = 1;
-    rst_n = 0;
+    rst_n = 1;
     ena = 1;
     dco_code = 8'b00000001;
     
-      #20 rst_n = 1; ena = 1;
+      #20000 rst_n = 0; ena = 1;
     // #400 dco_code = 8'b00000001;
-    #4000 dco_code = 8'b00000010;
-    #4000 dco_code = 8'b00000100;
-    #4000 dco_code = 8'b00001000;
-    #4000 dco_code = 8'b00010000;
-    #4000 dco_code = 8'b00100000;
-    #4000 dco_code = 8'b01000000;
-    #4000 dco_code = 8'b10000000;
-    
+    // #4000 dco_code = 8'b00000010;
+    // #4000 dco_code = 8'b00000100;
+    // #4000 dco_code = 8'b00001000;
+    // #4000 dco_code = 8'b00010000;
+    // #4000 dco_code = 8'b00100000;
+    // #4000 dco_code = 8'b01000000;
+    // #4000 dco_code = 8'b10000000;
+    // #19980 rst_n = 
 //    #10 reset = 1;
 //    #10 reset = 0;
     
