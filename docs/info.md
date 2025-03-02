@@ -48,6 +48,19 @@ Table: Test cases for DCO
 | 200           | `00000001`          |  0        | 1       | `00000000`          | 1         |
 | 210           | `00000001`          |  0        | 1       | `00000000`          | 0         |
 
+Table: Input vs Output Frequency  
+| **ui_in**    | **Output Frequency** |
+|-------------|----------------------|
+| `00000000`  | 20 MHz               |
+| `00000001`  | 6.25 MHz             |
+| `00000010`  | 5 MHz                |
+| `00000100`  | 4.166 MHz            |
+| `00001000`  | 3.57 MHz             |
+| `00010000`  | 3.125 MHz            |
+| `00100000`  | 2.77 MHz             |
+| `01000000`  | 2.5 MHz              |
+| `10000000`  | 2.27 MHz             |
+
 ## External hardware
 
 During the simulation, you can monitor the console or waveform outputs for detailed step-by-step results. The testbench uses $monitor to display real-time updates of the inputs and the resulting output.
