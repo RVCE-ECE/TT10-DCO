@@ -3,36 +3,43 @@
 
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import Timer, RisingEdge
+from cocotb.triggers import ClockCycles
+from cocotb.triggers import Timer
 
 @cocotb.test()
-async def test_dco_out_after_5_cycles(dut):
-    """Test case where dco_out should be 1 after 5 clock cycles."""
-
-    # Initialize the inputs
-    dut._log.info("Starting test: dco_out should be 1 after 5 clock cycles")
+async def test_project(dut):
     
-    dut.clk.value = 0  # Initialize clk to 0
-    dut.rst_n.value = 1  # Assert reset
-    dut.ena.value = 1  # Enable DCO
-    dut.dco_code.value = 0x01  # Set dco_code to 0x01
+    dut._log.info("Start")
+    dut.clk.value = 1
 
-    # Set the clock period to 20 ns (50 MHz clock)
+    # Set the clock period to 10 us (100 KHz)
     clock = Clock(dut.clk, 20, units="ns")
-    cocotb.start_soon(clock.start())  # Start the clock
+    cocotb.start_soon(clock.start())
 
-    # Apply reset and then de-assert after 20 ns
-    await Timer(20, units="ns")
-    dut.rst_n.value = 0  # Release reset after 20 ns
+    # Reset
+    dut._log.info("Reset")
+    dut.ena.value = 1
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    dut.rst_n.value = 1
 
-    # Wait for 5 clock cycles
-    for _ in range(7):
-        await RisingEdge(dut.clk)  # Wait for rising edge of the clock
+    dut.ui_in.value = 1
+
+    await Timer(20000, units="ns")
+    dut.rst_n.value = 0
+
+    dut._log.info("Test project behavior")
+
+    # Set the input values you want to test
     
-    # Check if dco_out is 1 after 5 clock cycles
-    await RisingEdge(dut.clk)  # Wait for the next clock cycle to ensure stability
-    assert dut.dco_out.value == 1, f"Expected dco_out to be 1 after 5 clock cycles, but got {dut.dco_out.value}"
+    # dut.uio_in.value = 30
 
-    # Log the result
-    dut._log.info(f"Test passed: dco_out={dut.dco_out.value} after 5 clock cycles")
+    # Wait for one clock cycle to see the output values
+    await ClockCycles(dut.clk, 1000)
 
+    # The following assersion is just an example of how to check the output values.
+    # Change it to match the actual expected output of your module:
+    assert dut.uo_out.value == 1
+
+    # Keep testing the module by changing the input values, waiting for
+    # one or more clock cycles, and asserting the expected output values.
