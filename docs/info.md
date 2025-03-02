@@ -23,13 +23,9 @@ To verify the functionality of the tt_um_dco module, a testbench (tb) has been p
 **clk** operates at a 50 MHz frequency.
 
 Table: Test cases for DCO
-Here is the modified table with the **State** column removed:  
+Here’s the updated table with **"ui_in (Input A)"** renamed to **"ui_in"**:  
 
-Here is the updated table with the **ena** column added and set to `1` in all rows:  
-
-Here is the updated table with all entries in the **ui_in (Input A)** column changed to `00000001`:  
-
-| **Time (ns)** | **ui_in (Input A)** | **Reset** | **ena** | **uo_out (Output)** | **Clock** |
+| **Time (ns)** | **ui_in**           | **Reset** | **ena** | **uo_out (Output)** | **Clock** |
 |---------------|---------------------|-----------|---------|---------------------|-----------|
 | 0             | `00000001`          |  1        | 1       | `00000000`          | 1         |
 | 10            | `00000001`          |  1        | 1       | `00000000`          | 0         |
@@ -53,6 +49,8 @@ Here is the updated table with all entries in the **ui_in (Input A)** column cha
 | 190           | `00000001`          |  0        | 1       | `00000000`          | 0         |
 | 200           | `00000001`          |  0        | 1       | `00000000`          | 1         |
 | 210           | `00000001`          |  0        | 1       | `00000000`          | 0         |
+
+Let me know if you need any more tweaks! 🚀
 
 The testbench will output the results of the simulation, including the values of the inputs and the resulting output for each test case. Monitor the output in the console or waveform viewer to ensure the tt_um_mac module behaves as expected.
 
