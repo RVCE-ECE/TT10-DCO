@@ -8,14 +8,13 @@
   
 ## How it works
 
-The tt_um_mac module is a Multiply-Accumulate (MAC) unit designed for high-performance digital signal processing and embedded system applications. This module integrates a Dadda multiplier and a Kogge-Stone adder to achieve efficient and fast computations. The MAC unit performs a sequence of multiplication and accumulation operations, which are essential in various digital signal processing tasks, such as filtering and convolution. Functional Description Input and Output Ports • Inputs: o ui_in (8-bit): Dedicated input for the first operand. o uio_in (8-bit): Input/Output interface for the second operand. o clk (1-bit): Clock signal to synchronize all operations. o rst_n (1-bit): Active-low reset signal to initialize the internal state of the MAC unit. • Outputs: o uo_out (8-bit): Output that holds the final accumulated result. o uio_oe (8-bit): Output enable signal, set to 0 indicating the uio is used as input. o uio_out (8-bit): Unused output path in the current context. Internal Architecturee
+The tt_um_dco module is a digitally controlled oscillator (DCO) that generates a frequency-adjustable clock signal based on an 8-bit control input (ui_in). The control input determines the oscillation period using a priority-based selection, where the highest active bit sets the period between 3 and 50 clock cycles. A fast clock is derived from the main clock (clk) using a 4-bit divider, toggling every four cycles. A counter increments on each clock edge, and when it reaches the selected period, dco_out toggles, generating the output waveform. The reset (rst_n) initializes the oscillator, and unused outputs are assigned zero to prevent warnings.
 
 ## How to test
 
-To verify the functionality of the tt_um_mac module, a testbench (tt_um_mac_tb) has been provided. The testbench simulates different input scenarios and observes the output behavior of the tt_um_mac module to ensure that it works correctly.
+To verify the functionality of the tt_um_dco module, a testbench (tb) has been provided. The testbench simulates different input scenarios and observes the output behavior of the tt_um_dco module to ensure that it works correctly.
 
-The testbench will output the results of the simulation, including the values of the inputs and the resulting output for each test case.
-Monitor the output in the console or waveform viewer to ensure the tt_um_mac module behaves as expected.
+The testbench will output the results of the simulation, including the values of the inputs and the resulting output for each test case. Monitor the output in the console or waveform viewer to ensure the tt_um_mac module behaves as expected.
 
 ## External hardware
 
