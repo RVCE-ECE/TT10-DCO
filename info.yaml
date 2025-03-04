@@ -3,7 +3,7 @@ project:
   title:        "Digitally Controlled Oscillator"      # Project title
   author:       "Shylashree N, Aditya Manjunatha, Rohan K Loni, Shrinidhi Udupa, Sudha Kumaran, RV College of Engineering"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "The tt_um_dco module is a digitally controlled oscillator (DCO) that generates a frequency-adjustable clock signal based on an 8-bit control input."      # One line description of what your project does
+  description:  "The digitally controlled oscillator (DCO) generates a frequency-adjustable clock signal based on an 8-bit control input."      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
